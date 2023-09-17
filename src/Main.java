@@ -2,14 +2,18 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        TorreDeHanoi jogo = new TorreDeHanoi(3);
         Scanner scanner = new Scanner(System.in);
         boolean fina = false;
 
-        jogo.Comecar();
         System.out.println("Jogo de torre de Hanoi");
+        System.out.println("Escolha o tamanho das pilhas: ");
+        int tamanho = scanner.nextInt();
+        TorreDeHanoi jogo = new TorreDeHanoi(tamanho);
+        jogo.Comecar();
         System.out.println("Pilha inicial:");
         jogo.p1.imprime();
+        System.out.println("Selecione se deseja ordem crescente ou decrescente: 1 ou 2");
+        int ordem = scanner.nextInt();
         System.out.println("Opcao 1 = Iniciar jogo normal");
         System.out.println("Opcao 2 = Solucao Automatica");
         int start = scanner.nextInt();
@@ -36,9 +40,17 @@ public class Main {
                          System.out.println("Escolha a pilha final: 1, 2 ou 3");
                          int escolha2 = scanner.nextInt();
                          jogo.Trocar(escolha1, escolha2);
-                         if(jogo.AcabouCheck()){
-                             System.out.println("Voce acabou o jogo com sucesso");
-                             fina = true;
+                         if(ordem == 1){
+                             if(jogo.AcabouCheckCresc()) {
+                                 System.out.println("Voce acabou o jogo com sucesso");
+                                 fina = true;
+                             }
+                         }
+                         if(ordem == 2){
+                             if(jogo.AcabouCheckDesc()){
+                                 System.out.println("Voce acabou o jogo com sucesso");
+                                 fina = true;
+                             }
                          }
                          break;
                          case 2:
@@ -48,7 +60,7 @@ public class Main {
                 }
                 break;
             case 2:
-                jogo.Automatico(3, 1, 2 ,3);
+                jogo.Automatico(tamanho, 1, 2 ,3);
         }
     }
 }

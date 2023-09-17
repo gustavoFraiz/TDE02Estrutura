@@ -153,7 +153,7 @@ public class TorreDeHanoi {
     }
 
     //Codigo para checar se acabou utilizando as funcoes Cheia e OrdemCrescente implementadas na Pilha.java, não ta funcionando.
-    public boolean AcabouCheck(){
+    public boolean AcabouCheckCresc(){
 //        if(p1.cheia() && p1.ordemCrescente()){
 //            return true;
 //        }
@@ -166,6 +166,19 @@ public class TorreDeHanoi {
 
         return false;
     }
+
+    public boolean AcabouCheckDesc(){
+
+        if(p2.cheia() && p2.ordemDecrescente()){
+            return true;
+        }
+        if(p3.cheia() && p3.ordemDecrescente()){
+            return true;
+        }
+
+        return false;
+    }
+
 
     public void Automatico(int n, int a, int b, int c)
     {

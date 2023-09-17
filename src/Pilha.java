@@ -111,6 +111,18 @@ public class Pilha {
         return true;
     }
 
+    public boolean ordemDecrescente(){
+        Node atual = pilha;
+
+        while (atual != null && atual.getProximo() != null) {
+            if (atual.getInformação() >= atual.getProximo().getInformação()) {
+                return false;
+            }
+            atual = atual.getProximo();
+        }
+        return true;
+    }
+
     public int getTamanho() {
         return tamanho;
     }
