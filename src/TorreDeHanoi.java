@@ -167,18 +167,18 @@ public class TorreDeHanoi {
         return false;
     }
 
-    public void Automatico(int n, int from_rod, int to_rod, int helper_rod)
+    public void Automatico(int n, int a, int b, int c)
     {
         if (n == 1)
         {
-            System.out.println("Take disk 1 from rod " +  from_rod + " to rod " + to_rod);
-            Trocar(from_rod, to_rod);
+            System.out.println("Trocar topo da pilha " +  a + " para pilha " + b);
+            Trocar(a, b);
             return;
         }
-        Automatico(n-1, from_rod, helper_rod, to_rod);
-        System.out.println("Pegar topo da pilha " + n + " from rod " +  from_rod + " to rod " + to_rod);
-        Trocar(from_rod, to_rod);
-        Automatico(n-1, helper_rod, to_rod, from_rod);
+        Automatico(n-1, a, c, b);
+        System.out.println("Trocar topo da pilha "  +  a + " para pilha " + b);
+        Trocar(a, b);
+        Automatico(n-1, c, b, a);
 
     }
 
