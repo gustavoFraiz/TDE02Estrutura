@@ -167,37 +167,22 @@ public class TorreDeHanoi {
         return false;
     }
 
-    public void Automatico(int n, int a, int b, int c)
+    public void Automatico(int n, int from_rod, int to_rod, int helper_rod)
     {
-//        if (n > 0)
-//        {
-//            Automatico(n-1, a, c, b);
-//            Trocar(a, c);
-////            int d = tower[a].pop();
-////            tower[c].push(d);
-//            Automatico(n-1, b, a, c);
-//            System.out.println("Pilha 1");
-//            p1.imprime();
-//            System.out.println("-------");
-//            System.out.println("Pilha 2");
-//            p2.imprime();
-//            System.out.println("-------");
-//            System.out.println("Pilha 3");
-//            p3.imprime();
-//            System.out.println("END");
-//            System.out.println("-------");
-//        }
-        if(n == 1){
-            Trocar(a,c);
+        if (n == 1)
+        {
+            System.out.println("Take disk 1 from rod " +  from_rod + " to rod " + to_rod);
+            Trocar(from_rod, to_rod);
             return;
         }
-        Automatico(n-1, a, c, b);
-        Trocar(a, c);
-        Automatico(n-1, b, a, c);
-        p1.imprime();
-        p2.imprime();
-        p3.imprime();
+        Automatico(n-1, from_rod, helper_rod, to_rod);
+        System.out.println("Pegar topo da pilha " + n + " from rod " +  from_rod + " to rod " + to_rod);
+        Trocar(from_rod, to_rod);
+        Automatico(n-1, helper_rod, to_rod, from_rod);
+
     }
+
+
 
 
 }

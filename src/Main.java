@@ -7,7 +7,7 @@ public class Main {
         boolean fina = false;
 
         jogo.Comecar();
-        jogo.Automatico(3,1,2,3);
+        jogo.Automatico(3,1,3,2);
 //        jogo.p1.imprime();
 //        jogo.p2.imprime();
 //        jogo.p3.imprime();
