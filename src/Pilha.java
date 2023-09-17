@@ -99,11 +99,11 @@ public class Pilha {
     }
 
     //Checa se a pilha ta em ordemCrescente, nao sei se ta funcionando.
-    public Boolean ordemCrescente(){
+    public boolean ordemCrescente(){
         Node atual = pilha;
 
         while (atual != null && atual.getProximo() != null) {
-            if (atual.getInformação() > atual.getProximo().getInformação()) {
+            if (atual.getInformação() <= atual.getProximo().getInformação()) {
                 return false;
             }
             atual = atual.getProximo();
