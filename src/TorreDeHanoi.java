@@ -23,6 +23,7 @@ public class TorreDeHanoi {
         for(int i = 0; i < tamanho; i++){
             p1.Inserir(random.nextInt(101));
         }
+        p1.organizaDecrescente();
 //        p1.imprime();
     }
 
@@ -153,9 +154,9 @@ public class TorreDeHanoi {
 
     //Codigo para checar se acabou utilizando as funcoes Cheia e OrdemCrescente implementadas na Pilha.java, não ta funcionando.
     public boolean AcabouCheck(){
-        if(p1.cheia() && p1.ordemCrescente()){
-            return true;
-        }
+//        if(p1.cheia() && p1.ordemCrescente()){
+//            return true;
+//        }
         if(p2.cheia() && p2.ordemCrescente()){
             return true;
         }
@@ -164,6 +165,38 @@ public class TorreDeHanoi {
         }
 
         return false;
+    }
+
+    public void Automatico(int n, int a, int b, int c)
+    {
+//        if (n > 0)
+//        {
+//            Automatico(n-1, a, c, b);
+//            Trocar(a, c);
+////            int d = tower[a].pop();
+////            tower[c].push(d);
+//            Automatico(n-1, b, a, c);
+//            System.out.println("Pilha 1");
+//            p1.imprime();
+//            System.out.println("-------");
+//            System.out.println("Pilha 2");
+//            p2.imprime();
+//            System.out.println("-------");
+//            System.out.println("Pilha 3");
+//            p3.imprime();
+//            System.out.println("END");
+//            System.out.println("-------");
+//        }
+        if(n == 1){
+            Trocar(a,c);
+            return;
+        }
+        Automatico(n-1, a, c, b);
+        Trocar(a, c);
+        Automatico(n-1, b, a, c);
+        p1.imprime();
+        p2.imprime();
+        p3.imprime();
     }
 
 

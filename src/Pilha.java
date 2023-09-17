@@ -115,6 +115,28 @@ public class Pilha {
         return tamanho;
     }
 
+    public void organizaDecrescente() {
+        if (vazio() || tamanho == 1) {
+
+            return;
+        }
+
+        Pilha pilhaTemporaria = new Pilha(tamanhoMax);
+
+        while (!vazio()) {
+            int elemento = remove();
+            while (!pilhaTemporaria.vazio() && pilhaTemporaria.getTopo() > elemento) {
+                int temp = pilhaTemporaria.remove();
+                Inserir(temp);
+            }
+            pilhaTemporaria.Inserir(elemento);
+        }
+
+        while (!pilhaTemporaria.vazio()) {
+            Inserir(pilhaTemporaria.remove());
+        }
+    }
+
 
 }
 
